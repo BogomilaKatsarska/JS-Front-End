@@ -1,0 +1,108 @@
+1.Arrays:
+    - list-like objects
+    - arrays are reference type, the variable points to an address in memory
+    - have indexes(0,1,2..) and elements
+    console.log(arrayOne[arrayOne.length - 1]);
+
+    1.1. Destructuring Syntax: expression that unpacks values from arrays or obj,
+    into distinct variables
+
+    let numbers = [10, 20, 30, 40, 50 , 60];
+    let [a, b, ...elems] = numbers;
+
+    1.2 for - of:
+    const nums = [1, 2, 3, 4, 5];
+    for (const number of nums) {
+        console.log(number)
+    }
+
+    for (let index = 0; index < array.length; index++) {
+        const element = array[index];
+    }
+
+    1.3. *Args in JS:
+        function func1(...arguments){
+            console.log(arguments);
+            console.log(arguments.length);
+        }
+2.Array Methods:
+    - pop() - removes the last element from an array and returns that element
+            this method changes the length of the array
+    - push() - adds one or more elements to the end of an array and returns the
+            new length of the array
+    - shift() - this method removes the first element from an array and returns the
+            removed element. This method changes the length of the array
+    - unshift() - adds one or more element to the beginning of an array and returns 
+            the new length of the array
+    - splice() - changes the contents of an array by removing or replacing existing
+            elements and/or adding new element (depending on the delete count - 0 or more -
+            can add or delete elements) - with delete works exclusive the last index
+    - reverse() - reverses the array
+    - join() - creates and returns a new string by concatenating all of the elements in an 
+            array (or an array-like object), separated by commas or a specified separator
+            string
+
+        let elements = ['Fire', 'Air', 'Water'];
+        console.log(element.join()); // "Fire,Air,Water"
+        console.log(element.join(''))// "FireAirWater"
+        console.log(element.join('-'))// "Fire-Air-Water"
+        console.log(['Fire'].join("."))// Fire
+    - slice() - returns a shallow copy of a portion of an array into a new array object 
+            selected from begin to end(end not included). The original array will not be modified
+    - includes() - determines whether an array contains a certain element, returning T 
+            or F as appropriate
+    - indexOf() - returns the first index at which a given element can be found in the array.
+            Output is -1 if element is not present
+    - forEach() - executes a provided function once for each array element
+    - map() - cresates a new array with the results of calling a provided function on 
+            every element in the calling array
+    - find() - returns the first founded value in the array, if an element in the array
+            satisties the provided testing function or undefined if not found 
+    - filter() - creates a new array with filtered elements only.
+            Calls a provided callback function once for each element in an array.
+            Does not manupulate the array on which it is called
+    
+3.Text Processing:
+    3.1. Concatenating:
+        "+"
+        "+="
+        .concat()
+    3.2. Searching for Substrings:
+        indexOf(substring)
+        let str = "I am JavaScript developer";
+        console.log(str.indexOf("Java")); --> exp output: 5
+        console.log(str.indexOf("java")); --> exp output: -1
+
+        lastIndexOf(substr)
+        substring(startIndex, endIndex)
+        replace('.bg', '.com') --> replaces only the first appearance
+
+        split(' '); --> opposite of join
+        includes('frutis') --> booleam
+        repeat(count);
+        console('*', repeat(5));
+
+        trim()
+        trimStart()
+        trimEnd()
+        startsWith() --> boolean
+        endsWith()   --> boolean
+        padStart()
+        padEnd()
+
+4.Regular Expressions
+        let regExp = new RegExp('[A-Za-a]+', 'g');
+        const regLitaral = /[A-Za-a]+/g
+
+        example:
+
+        let text = 'Today is 2015-05-11';
+        let regexp = /\d{4}-\d{2}-\d{2}/g;
+
+        let containsValidDate = regexp.test(text);
+        console.log(containsValidDate);
+        exec(string, text)
+        replace(regexp, stringReplacement)
+        matchAll(regexp) - returns an iterator of all results matching a string against a Regular
+        Expression, including capturing groups
+        split(regexp)
