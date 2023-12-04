@@ -1,0 +1,126 @@
+1.Objects
+    1.1. Definitions:
+        - Objects: structure of related data or functionality
+        - Contains values accessed by string keys
+        - Properties: data values
+        - Methods: function values
+        - You can add and remove properties during runtime/!\
+
+        let person = { name: 'Peter', age: 20, height: 183}
+
+        let person = {};
+        person.name = 'Peter';
+        person.age = 20;
+        person.haircolor = 'black';
+        
+        person['last_name'] = 'Parker'; <-- keys are stings, this is why we add ' ' around last_name
+
+    1.2. Methods of Objects:
+        - let person = {
+            sayHello: function(){
+                console.log('Hi, guys');
+            }
+        }
+
+        - let person = {
+            sayHello(){
+                console.log('Hi, guys');
+            }
+        }
+
+        - We can add a method to an already degined Object
+        let person = {name: 'Peter', age: 20};
+        person.sayHello = () => console.log('Hi, guys')
+
+    1.3. Built-in Methods:
+        - Get array of all property names(keys)
+            Object.keys(cat); // ['name', 'age']
+        - Get objects with all property values
+            Object.values(cat); // ['Tom', 5]
+        - Get an array of all properties as key-value tuples
+            Object.entries(cat); // [['name', 'Tom'], ['age', 5]]
+2.JSON(JavaScript Object Notation):
+    - Open-standard file format that uses text to transmit data objects
+    - JSON is language independent
+    - JSON is self-describing and easy to understand
+    2.1.Usage:
+        - Exchange data between browser and server
+        - JSON is lightweight format compared to XML
+        - JS has built-in functions to parse JSON so it's easy to use
+        - JSON uses human-readable text to transmit data
+
+        {
+            "name": "Ivan",
+            "age": 25,
+            "grades": {
+                "Math": [2.50, 4.50],
+                "Chemistry": [6.00, 3.45]
+            }
+        }
+    2.2. JSON Methods:
+        - STRINGIFY - We can convert JS object into JSON using
+        JSON.stringify(object) method
+        let text = JSON.stringify(obj);
+
+        - PARSE - We can convert JSON string into JS object using
+        let obj = JSON.parse(text);
+3.Associative Arrays: sorting KVP
+    - Array indexed by string keys 
+    - Holds set of pairs [key => value]
+    - The key is a string
+    - The value can be of any type 
+
+    function test(keyName){
+        return{
+            age:22,
+            town:'Sofia',
+            [keyName]: undefined,
+        }
+    }
+
+    let assocArr = {};
+    assocArr['one'] = 1;
+    assocArr['two'] = 2;
+    assocArr['three'] = 3;
+
+    for(let key in assocArr) {
+        console.log(key + " = " + assocArr[key]);
+    }
+    3.1.Manipulating Associative Arrays:
+        - Check if the key is present:
+        let assocArr = {/*entries*/};
+        if (assocArr.hasOwnProperty('John Smith'))
+
+        - Remove entries:
+        delete assocArr['John Smith'];
+
+        - Objects cannot be sorted; they must be converted first 
+        - Convert to array for sorting, filtering and mapping
+
+    3.2.Sorting Associative Arrays:
+        let phonebook = {
+            'Tim': '089989898',
+            'Bill': '08767899',
+        };
+        let entries = Object.entries(phonebook);
+        console.log(entries);
+4.Classes:
+    - Templates for creating objects
+    - Defines structure and behavior
+    - An object created by the class pattern is called an instance of that class 
+    - A class has a constructor - method called automatically to create an object 
+    - It prepares the new object for use
+    - Can receive parameters and assign them to properties
+
+    class Student {
+        constructor(name, grade){
+            this.name = name;
+            this.grade = grade;
+        }
+        speak(){
+            console.log(`${this.name} says Woof!`);
+        }
+    }
+
+    let dog = new Dog('Sparky');
+    dog.speak();
